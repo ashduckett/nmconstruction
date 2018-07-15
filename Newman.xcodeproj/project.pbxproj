@@ -12,6 +12,15 @@
 		5ED17DF920FBDEBA00146B20 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5ED17DF720FBDEBA00146B20 /* Main.storyboard */; };
 		5ED17DFB20FBDEBB00146B20 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5ED17DFA20FBDEBB00146B20 /* Assets.xcassets */; };
 		5ED17DFE20FBDEBB00146B20 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5ED17DFC20FBDEBB00146B20 /* LaunchScreen.storyboard */; };
+		5ED17E0E20FBE57700146B20 /* PictureField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED17E0520FBE57700146B20 /* PictureField.swift */; };
+		5ED17E0F20FBE57700146B20 /* MaterialField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED17E0620FBE57700146B20 /* MaterialField.swift */; };
+		5ED17E1020FBE57700146B20 /* NewmanField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED17E0720FBE57700146B20 /* NewmanField.swift */; };
+		5ED17E1120FBE57700146B20 /* SingleLeftSideField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED17E0820FBE57700146B20 /* SingleLeftSideField.swift */; };
+		5ED17E1220FBE57700146B20 /* SubstrateField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED17E0920FBE57700146B20 /* SubstrateField.swift */; };
+		5ED17E1320FBE57700146B20 /* SingleCenteredFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED17E0A20FBE57700146B20 /* SingleCenteredFieldView.swift */; };
+		5ED17E1420FBE57700146B20 /* FullLengthTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED17E0B20FBE57700146B20 /* FullLengthTextField.swift */; };
+		5ED17E1520FBE57700146B20 /* ThreeTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED17E0C20FBE57700146B20 /* ThreeTextFieldView.swift */; };
+		5ED17E1620FBE57700146B20 /* TextFieldPairView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED17E0D20FBE57700146B20 /* TextFieldPairView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +31,15 @@
 		5ED17DFA20FBDEBB00146B20 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5ED17DFD20FBDEBB00146B20 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5ED17DFF20FBDEBB00146B20 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5ED17E0520FBE57700146B20 /* PictureField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureField.swift; sourceTree = "<group>"; };
+		5ED17E0620FBE57700146B20 /* MaterialField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialField.swift; sourceTree = "<group>"; };
+		5ED17E0720FBE57700146B20 /* NewmanField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewmanField.swift; sourceTree = "<group>"; };
+		5ED17E0820FBE57700146B20 /* SingleLeftSideField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleLeftSideField.swift; sourceTree = "<group>"; };
+		5ED17E0920FBE57700146B20 /* SubstrateField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubstrateField.swift; sourceTree = "<group>"; };
+		5ED17E0A20FBE57700146B20 /* SingleCenteredFieldView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleCenteredFieldView.swift; sourceTree = "<group>"; };
+		5ED17E0B20FBE57700146B20 /* FullLengthTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullLengthTextField.swift; sourceTree = "<group>"; };
+		5ED17E0C20FBE57700146B20 /* ThreeTextFieldView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThreeTextFieldView.swift; sourceTree = "<group>"; };
+		5ED17E0D20FBE57700146B20 /* TextFieldPairView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldPairView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +58,15 @@
 			children = (
 				5ED17DF220FBDEBA00146B20 /* Newman */,
 				5ED17DF120FBDEBA00146B20 /* Products */,
+				5ED17E0B20FBE57700146B20 /* FullLengthTextField.swift */,
+				5ED17E0620FBE57700146B20 /* MaterialField.swift */,
+				5ED17E0720FBE57700146B20 /* NewmanField.swift */,
+				5ED17E0520FBE57700146B20 /* PictureField.swift */,
+				5ED17E0A20FBE57700146B20 /* SingleCenteredFieldView.swift */,
+				5ED17E0820FBE57700146B20 /* SingleLeftSideField.swift */,
+				5ED17E0920FBE57700146B20 /* SubstrateField.swift */,
+				5ED17E0D20FBE57700146B20 /* TextFieldPairView.swift */,
+				5ED17E0C20FBE57700146B20 /* ThreeTextFieldView.swift */,
 			);
 			sourceTree = "<group>";
 		};
@@ -135,7 +162,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5ED17E1020FBE57700146B20 /* NewmanField.swift in Sources */,
 				5ED17DF620FBDEBA00146B20 /* ViewController.swift in Sources */,
+				5ED17E1620FBE57700146B20 /* TextFieldPairView.swift in Sources */,
+				5ED17E0F20FBE57700146B20 /* MaterialField.swift in Sources */,
+				5ED17E1320FBE57700146B20 /* SingleCenteredFieldView.swift in Sources */,
+				5ED17E0E20FBE57700146B20 /* PictureField.swift in Sources */,
+				5ED17E1220FBE57700146B20 /* SubstrateField.swift in Sources */,
+				5ED17E1120FBE57700146B20 /* SingleLeftSideField.swift in Sources */,
+				5ED17E1520FBE57700146B20 /* ThreeTextFieldView.swift in Sources */,
+				5ED17E1420FBE57700146B20 /* FullLengthTextField.swift in Sources */,
 				5ED17DF420FBDEBA00146B20 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
