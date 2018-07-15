@@ -10,13 +10,13 @@ import UIKit
 
 class NewmanField: UIView {
     let horizontalSubview = UIStackView()
-    var delegate: ViewController?
+    var delegate: NewmanFormViewController?
     let addFieldButton = UIButton(type: .system)
     var textFields: [UITextField]?
     var placeholders: [String]?
 
     
-    init(frame: CGRect, delegate: ViewController?, textFieldCount: Int, placeholders: [String]) {
+    init(frame: CGRect, delegate: NewmanFormViewController?, textFieldCount: Int, placeholders: [String]) {
         super.init(frame: frame)
         
         self.delegate = delegate

@@ -44,7 +44,7 @@ class SubstrateField: NewmanField, UIPickerViewDelegate, UIPickerViewDataSource,
     let substrateTypeData = ["Type One", "Type Two", "Type Three", "Type Four", "Type Five"]
     let colourData = ["Red", "Yellow", "Green", "Blue", "Orange"]
     
-    init(placeholders: [String], delegate: ViewController, textFieldCount: Int) {
+    init(placeholders: [String], delegate: NewmanFormViewController, textFieldCount: Int) {
         super.init(frame: CGRect.zero, delegate: delegate, textFieldCount: textFieldCount, placeholders: placeholders)
     }
     

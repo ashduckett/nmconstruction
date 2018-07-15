@@ -8,9 +8,13 @@
 
 import UIKit
 
+protocol NewmanFieldDelegate {
+    func plusButtonTapped()
+}
+
 class TextFieldPairView: NewmanField, NewmanFieldDelegate {
     
-    init(placeholders: [String], delegate: ViewController) {
+    init(placeholders: [String], delegate: NewmanFormViewController) {
         super.init(frame: CGRect.zero, delegate: delegate, textFieldCount: 2, placeholders: placeholders)
     }
         

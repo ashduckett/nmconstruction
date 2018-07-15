@@ -20,7 +20,7 @@ class PictureField: NewmanField, UIImagePickerControllerDelegate, UINavigationCo
     let imagePicker = UIImagePickerController()
     var viewController: UIViewController?
     
-    init(placeholders: [String], delegate: ViewController, textFieldCount: Int, viewController: UIViewController) {
+    init(placeholders: [String], delegate: NewmanFormViewController, textFieldCount: Int, viewController: UIViewController) {
         super.init(frame: CGRect.zero, delegate: delegate, textFieldCount: textFieldCount, placeholders: placeholders)
         self.viewController = viewController
         imagePicker.delegate = self

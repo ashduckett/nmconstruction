@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Newman Form View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Newman" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="NewmanFormViewController" customModule="Newman" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="1366" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -22,26 +22,26 @@
                                 <rect key="frame" x="0.0" y="20" width="1366" height="100"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="IWO-um-w7O">
-                                        <rect key="frame" x="664" y="0.0" width="682" height="100"/>
+                                        <rect key="frame" x="634" y="35" width="682" height="30"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wKY-4a-dre">
-                                                <rect key="frame" x="0.0" y="0.0" width="130" height="100"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="130" height="30"/>
                                                 <state key="normal" title="WATER PROOFING"/>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ats-3s-8ph">
-                                                <rect key="frame" x="150" y="0.0" width="98" height="100"/>
+                                                <rect key="frame" x="150" y="0.0" width="98" height="30"/>
                                                 <state key="normal" title="STRUCTURAL"/>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zqy-cQ-fdl">
-                                                <rect key="frame" x="268" y="0.0" width="136" height="100"/>
+                                                <rect key="frame" x="268" y="0.0" width="136" height="30"/>
                                                 <state key="normal" title="BRICK REPAIR/TINT"/>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p09-dS-RmA">
-                                                <rect key="frame" x="424" y="0.0" width="134" height="100"/>
+                                                <rect key="frame" x="424" y="0.0" width="134" height="30"/>
                                                 <state key="normal" title="CONCRETE REPAIR"/>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v6K-Mx-Bzc">
-                                                <rect key="frame" x="578" y="0.0" width="104" height="100"/>
+                                                <rect key="frame" x="578" y="0.0" width="104" height="30"/>
                                                 <state key="normal" title="STONE REPAIR"/>
                                             </button>
                                         </subviews>
@@ -49,73 +49,41 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="1XC-qb-449"/>
-                                    <constraint firstItem="IWO-um-w7O" firstAttribute="top" secondItem="9nF-8V-n0F" secondAttribute="top" id="5Cl-98-U33"/>
-                                    <constraint firstAttribute="bottom" secondItem="IWO-um-w7O" secondAttribute="bottom" id="bAO-RH-MNx"/>
-                                    <constraint firstAttribute="trailing" secondItem="IWO-um-w7O" secondAttribute="trailing" constant="20" id="lwd-FD-ugE"/>
+                                    <constraint firstItem="IWO-um-w7O" firstAttribute="centerY" secondItem="9nF-8V-n0F" secondAttribute="centerY" id="A4X-IK-plD"/>
+                                    <constraint firstAttribute="trailing" secondItem="IWO-um-w7O" secondAttribute="trailing" constant="50" id="T9g-Rc-fHX"/>
+                                    <constraint firstAttribute="height" constant="100" id="Z2L-CL-Z1w"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ODc-Z9-gFf">
                                 <rect key="frame" x="0.0" y="924" width="1366" height="100"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oHU-ZQ-WLR">
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oHU-ZQ-WLR">
                                         <rect key="frame" x="667" y="35" width="32" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Next"/>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="oHU-ZQ-WLR" firstAttribute="centerX" secondItem="ODc-Z9-gFf" secondAttribute="centerX" id="Khr-SV-EyD"/>
-                                    <constraint firstAttribute="height" constant="100" id="Q3U-Kt-a4V"/>
-                                    <constraint firstItem="oHU-ZQ-WLR" firstAttribute="centerY" secondItem="ODc-Z9-gFf" secondAttribute="centerY" id="T4z-rf-GOT"/>
+                                    <constraint firstAttribute="height" constant="100" id="4W6-sJ-foN"/>
                                 </constraints>
                             </view>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qSg-za-uTI">
-                                <rect key="frame" x="0.0" y="120" width="1366" height="804"/>
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="1C5-Nx-YmI">
-                                        <rect key="frame" x="0.0" y="0.0" width="42" height="20.5"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hv2-U8-iEN">
-                                                <rect key="frame" x="0.0" y="0.0" width="42" height="20.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                    </stackView>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="1C5-Nx-YmI" secondAttribute="bottom" id="FWo-7h-VHW"/>
-                                    <constraint firstItem="1C5-Nx-YmI" firstAttribute="leading" secondItem="qSg-za-uTI" secondAttribute="leading" id="h3k-yM-Era"/>
-                                    <constraint firstAttribute="trailing" secondItem="1C5-Nx-YmI" secondAttribute="trailing" id="sRo-Hg-d47"/>
-                                    <constraint firstItem="1C5-Nx-YmI" firstAttribute="top" secondItem="qSg-za-uTI" secondAttribute="top" id="wim-hb-Avb"/>
-                                </constraints>
-                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="qSg-za-uTI" secondAttribute="trailing" id="3r4-gd-INa"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ODc-Z9-gFf" secondAttribute="bottom" id="AqZ-9S-nzk"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="9nF-8V-n0F" secondAttribute="trailing" id="BE9-Y0-ohg"/>
-                            <constraint firstItem="ODc-Z9-gFf" firstAttribute="top" secondItem="qSg-za-uTI" secondAttribute="bottom" id="Cm1-oD-fzl"/>
-                            <constraint firstItem="9nF-8V-n0F" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="M12-RI-YK4"/>
-                            <constraint firstItem="9nF-8V-n0F" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="dVp-HZ-dBr"/>
-                            <constraint firstItem="ODc-Z9-gFf" firstAttribute="top" secondItem="qSg-za-uTI" secondAttribute="bottom" id="iZI-0Y-cdC"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ODc-Z9-gFf" secondAttribute="trailing" id="pKQ-q9-8Ck"/>
-                            <constraint firstItem="qSg-za-uTI" firstAttribute="top" secondItem="9nF-8V-n0F" secondAttribute="bottom" id="ttm-BF-SVf"/>
-                            <constraint firstItem="ODc-Z9-gFf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="yp1-dN-SzK"/>
-                            <constraint firstItem="qSg-za-uTI" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="zkr-8K-uz4"/>
+                            <constraint firstItem="9nF-8V-n0F" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Coz-4x-H9b"/>
+                            <constraint firstItem="ODc-Z9-gFf" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Nab-1S-I8S"/>
+                            <constraint firstItem="9nF-8V-n0F" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Nmq-ue-Bxp"/>
+                            <constraint firstItem="9nF-8V-n0F" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="f7z-gm-cRQ"/>
+                            <constraint firstItem="ODc-Z9-gFf" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="sP2-B8-7FZ"/>
+                            <constraint firstItem="ODc-Z9-gFf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="wId-qc-pdK"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <connections>
-                        <outlet property="formContainer" destination="1C5-Nx-YmI" id="Wrh-Dw-NdU"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="137.6953125" y="133.96778916544656"/>
+            <point key="canvasLocation" x="137.48169838945827" y="133.59375"/>
         </scene>
     </scenes>
 </document>
