@@ -20,7 +20,10 @@ class NewmanField: UIView {
         super.init(frame: frame)
         
         self.delegate = delegate
+        
+        // Initialise two new UITextField instances
         textFields = (0..<textFieldCount).map { _ in UITextField() }
+        
         self.placeholders = placeholders
     }
     
@@ -39,7 +42,11 @@ class NewmanField: UIView {
     func setupHorizontalSubview() {
         
         for (index, textField) in textFields!.enumerated() {
-            textField.borderStyle = .roundedRect
+            textField.borderStyle = .line
+            textField.frame.size.height = 200
+            let leftPaddingView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: textField.frame.height))
+            textField.leftView = leftPaddingView
+            textField.leftViewMode = .always
             textField.placeholder = self.placeholders![index]
             print("Adding text field")
             horizontalSubview.addArrangedSubview(textField)

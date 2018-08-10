@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5E157C93211D17BF0012D988 /* GenericTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E157C92211D17BF0012D988 /* GenericTable.swift */; };
+		5E22BD7A211B245200247481 /* RenderableSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E22BD79211B245200247481 /* RenderableSection.swift */; };
+		5E22BD7C211B2C1400247481 /* MainContentArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E22BD7B211B2C1400247481 /* MainContentArea.swift */; };
+		5E22BD7E211B343C00247481 /* HeaderSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E22BD7D211B343C00247481 /* HeaderSection.swift */; };
+		5E22BD80211B38BC00247481 /* FooterSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E22BD7F211B38BC00247481 /* FooterSection.swift */; };
+		5E22BD82211B6EAD00247481 /* TableSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E22BD81211B6EAD00247481 /* TableSection.swift */; };
+		5E9540D52118B9D8002978E8 /* QuotationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9540D42118B9D8002978E8 /* QuotationViewController.swift */; };
+		5E9540D72118BC99002978E8 /* TermsAndConditionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9540D62118BC99002978E8 /* TermsAndConditionsViewController.swift */; };
+		5EA761FE211DC63300EEBE2F /* PDFPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA761FD211DC63300EEBE2F /* PDFPage.swift */; };
+		5EA76200211DC6B600EEBE2F /* PDF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA761FF211DC6B600EEBE2F /* PDF.swift */; };
+		5EA76202211DCC1F00EEBE2F /* NewmanPDFPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA76201211DCC1F00EEBE2F /* NewmanPDFPage.swift */; };
+		5EA76204211DD78B00EEBE2F /* MerchantQuotationPDFPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA76203211DD78B00EEBE2F /* MerchantQuotationPDFPage.swift */; };
 		5ED17DF420FBDEBA00146B20 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED17DF320FBDEBA00146B20 /* AppDelegate.swift */; };
 		5ED17DF620FBDEBA00146B20 /* NewmanFieldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED17DF520FBDEBA00146B20 /* NewmanFieldViewController.swift */; };
 		5ED17DF920FBDEBA00146B20 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5ED17DF720FBDEBA00146B20 /* Main.storyboard */; };
@@ -24,6 +36,18 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5E157C92211D17BF0012D988 /* GenericTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericTable.swift; sourceTree = "<group>"; };
+		5E22BD79211B245200247481 /* RenderableSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenderableSection.swift; sourceTree = "<group>"; };
+		5E22BD7B211B2C1400247481 /* MainContentArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContentArea.swift; sourceTree = "<group>"; };
+		5E22BD7D211B343C00247481 /* HeaderSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderSection.swift; sourceTree = "<group>"; };
+		5E22BD7F211B38BC00247481 /* FooterSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterSection.swift; sourceTree = "<group>"; };
+		5E22BD81211B6EAD00247481 /* TableSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableSection.swift; sourceTree = "<group>"; };
+		5E9540D42118B9D8002978E8 /* QuotationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotationViewController.swift; sourceTree = "<group>"; };
+		5E9540D62118BC99002978E8 /* TermsAndConditionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsAndConditionsViewController.swift; sourceTree = "<group>"; };
+		5EA761FD211DC63300EEBE2F /* PDFPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFPage.swift; sourceTree = "<group>"; };
+		5EA761FF211DC6B600EEBE2F /* PDF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDF.swift; sourceTree = "<group>"; };
+		5EA76201211DCC1F00EEBE2F /* NewmanPDFPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewmanPDFPage.swift; sourceTree = "<group>"; };
+		5EA76203211DD78B00EEBE2F /* MerchantQuotationPDFPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MerchantQuotationPDFPage.swift; sourceTree = "<group>"; };
 		5ED17DF020FBDEBA00146B20 /* Newman.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Newman.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5ED17DF320FBDEBA00146B20 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5ED17DF520FBDEBA00146B20 /* NewmanFieldViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewmanFieldViewController.swift; sourceTree = "<group>"; };
@@ -83,7 +107,19 @@
 			children = (
 				5ED17DF320FBDEBA00146B20 /* AppDelegate.swift */,
 				5ED17DF520FBDEBA00146B20 /* NewmanFieldViewController.swift */,
+				5E9540D42118B9D8002978E8 /* QuotationViewController.swift */,
+				5E22BD81211B6EAD00247481 /* TableSection.swift */,
+				5E157C92211D17BF0012D988 /* GenericTable.swift */,
+				5E22BD79211B245200247481 /* RenderableSection.swift */,
+				5EA761FD211DC63300EEBE2F /* PDFPage.swift */,
+				5EA761FF211DC6B600EEBE2F /* PDF.swift */,
+				5EA76201211DCC1F00EEBE2F /* NewmanPDFPage.swift */,
+				5EA76203211DD78B00EEBE2F /* MerchantQuotationPDFPage.swift */,
+				5E22BD7F211B38BC00247481 /* FooterSection.swift */,
+				5E22BD7B211B2C1400247481 /* MainContentArea.swift */,
+				5E22BD7D211B343C00247481 /* HeaderSection.swift */,
 				5ED17DF720FBDEBA00146B20 /* Main.storyboard */,
+				5E9540D62118BC99002978E8 /* TermsAndConditionsViewController.swift */,
 				5ED17DFA20FBDEBB00146B20 /* Assets.xcassets */,
 				5ED17DFC20FBDEBB00146B20 /* LaunchScreen.storyboard */,
 				5ED17DFF20FBDEBB00146B20 /* Info.plist */,
@@ -163,16 +199,28 @@
 			buildActionMask = 2147483647;
 			files = (
 				5ED17E1020FBE57700146B20 /* NewmanField.swift in Sources */,
+				5EA76204211DD78B00EEBE2F /* MerchantQuotationPDFPage.swift in Sources */,
+				5E22BD7C211B2C1400247481 /* MainContentArea.swift in Sources */,
 				5ED17DF620FBDEBA00146B20 /* NewmanFieldViewController.swift in Sources */,
 				5ED17E1620FBE57700146B20 /* TextFieldPairView.swift in Sources */,
+				5EA76200211DC6B600EEBE2F /* PDF.swift in Sources */,
 				5ED17E0F20FBE57700146B20 /* MaterialField.swift in Sources */,
 				5ED17E1320FBE57700146B20 /* SingleCenteredFieldView.swift in Sources */,
 				5ED17E0E20FBE57700146B20 /* PictureField.swift in Sources */,
+				5E22BD82211B6EAD00247481 /* TableSection.swift in Sources */,
 				5ED17E1220FBE57700146B20 /* SubstrateField.swift in Sources */,
+				5E9540D72118BC99002978E8 /* TermsAndConditionsViewController.swift in Sources */,
+				5EA76202211DCC1F00EEBE2F /* NewmanPDFPage.swift in Sources */,
+				5E9540D52118B9D8002978E8 /* QuotationViewController.swift in Sources */,
+				5E22BD7A211B245200247481 /* RenderableSection.swift in Sources */,
+				5E22BD80211B38BC00247481 /* FooterSection.swift in Sources */,
 				5ED17E1120FBE57700146B20 /* SingleLeftSideField.swift in Sources */,
+				5E22BD7E211B343C00247481 /* HeaderSection.swift in Sources */,
 				5ED17E1520FBE57700146B20 /* ThreeTextFieldView.swift in Sources */,
 				5ED17E1420FBE57700146B20 /* FullLengthTextField.swift in Sources */,
+				5E157C93211D17BF0012D988 /* GenericTable.swift in Sources */,
 				5ED17DF420FBDEBA00146B20 /* AppDelegate.swift in Sources */,
+				5EA761FE211DC63300EEBE2F /* PDFPage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

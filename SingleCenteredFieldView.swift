@@ -39,7 +39,9 @@ class SingleCenteredFieldView: NewmanField {
         horizontalStackView.addArrangedSubview(label)
 
         let textField = UITextField()
-        textField.borderStyle = .roundedRect
+        //textField.borderStyle = .roundedRect
+        textField.borderStyle = .line
+        
         horizontalStackView.addArrangedSubview(textField)
 
         verticalStackView.addArrangedSubview(horizontalStackView)

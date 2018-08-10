@@ -43,6 +43,13 @@ class PictureField: NewmanField, UIImagePickerControllerDelegate, UINavigationCo
         super.setupHorizontalSubview()
         addSubview(horizontalSubview)
         textFields![0].addTarget(self, action: #selector(pictureFieldTapped), for: .touchDown)
+        
+        textFields![0].layer.masksToBounds = true
+        textFields![0].layer.borderWidth = 1
+        
+        textFields![0].layer.borderColor = UIColor.orange.cgColor
+        
+        
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
