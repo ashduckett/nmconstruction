@@ -22,8 +22,8 @@ class PDFPage {
     
     func renderDrawableAreaOutline() {
         guard let context = UIGraphicsGetCurrentContext() else { return }
-        context.addRect(getDrawableRect()!)
-        context.drawPath(using: .stroke)
+        //context.addRect(getDrawableRect()!)
+        //context.drawPath(using: .stroke)
     }
     
 }

@@ -9,18 +9,11 @@
 import Foundation
 import UIKit
 
-struct Material {
-    var name: String
-    var amount: Int
+struct MerchantQuotationPDFPageData {
+    var services: [Service]
+    var extraServices: [ExtraService]
 }
 
-struct Service {
-    var name: String
-    var materials: [Material]
-    var elevation: Int
-    var details: String
-    var cost: Double
-}
 
 // Struct to represent headers along with their percentage widths
 struct GenericTableHeader {
@@ -40,6 +33,21 @@ class GenericTable {
         self.area = area
     }
     
+    func renderHeaderContainerRect() {
+        guard let context = UIGraphicsGetCurrentContext() else { return }
+        
+        // Draw outline around header container
+        let headerContainingRect = CGRect(x: (area?.minX)!, y: (area?.minY)!, width: (area?.width)!, height: 25)
+        context.addRect(headerContainingRect)
+        context.setStrokeColor(UIColor(red: 250 / 255, green: 182 / 255, blue: 48 / 255, alpha: 1).cgColor)
+        context.setLineWidth(2)
+        context.drawPath(using: .stroke)
+        context.setLineWidth(1)
+
+    }
+    
+    
+    
     func render() {
         guard let context = UIGraphicsGetCurrentContext() else { return }
     
@@ -49,13 +57,12 @@ class GenericTable {
             for header in headers {
                 let headerRect = CGRect(x: currentLeft, y: area!.minY, width: area!.width / 100 * header.percentageWidth, height: headerHeight)
                 
-                context.addRect(headerRect)
-                context.drawPath(using: .stroke)
-                context.setFillColor(UIColor.black.cgColor)
-                //context.fill(headerRect)
+                //context.addRect(headerRect)
                 
+                //context.setFillColor(UIColor.orange.cgColor)
+                //context.setStrokeColor(UIColor.orange.cgColor)
                 
-            
+                //context.drawPath(using: .stroke)
                 let headerTextFont = UIFont(name: "Academy Engraved LET", size: 12)
             
                 let headerTextAttributes = [
@@ -73,6 +80,7 @@ class GenericTable {
                 var contentArea = CGRect(x: currentLeft, y: headerRect.maxY, width: headerRect.width, height: (area?.height)! - headerHeight)
                 tableAreaRects.append(contentArea)
                 context.addRect(contentArea)
+                context.setStrokeColor(UIColor.lightGray.cgColor)
                 context.drawPath(using: .stroke)
                 
                 currentLeft += headerRect.width
@@ -81,10 +89,12 @@ class GenericTable {
         }
         
         renderData()
+        renderHeaderContainerRect()
     }
     
     func renderData() {
-        // To be overridden
+        // To be overridden. Why doesn't Swift allow for abstract classes and functions?
+        print("You should have subclassed GenericTable and overriden this method you fool.")
     }
     
     
@@ -97,16 +107,31 @@ class ServiceQuoteTable: GenericTable {
         self.services = services
         super.init(area: area, headers: headers)
     }
-    
-    //func getStringHeight(string: NSString) -> CGFloat {
+
+    func getHeightOfString(string: NSString, size: CGSize) -> CGFloat {
+        let headerTextFont = UIFont(name: "Academy Engraved LET", size: 12)
         
-    //}
+        let headerTextAttributes = [
+            NSAttributedStringKey.font: headerTextFont,
+            NSAttributedStringKey.foregroundColor: UIColor.black
+        ]
+        
+        let height = string.boundingRect(with: size, options: .usesLineFragmentOrigin, attributes: headerTextAttributes, context: nil).size.height
+        
+        return height
+    }
+    
+    func getServices() -> [Service] {
+        return self.services
+    }
     
     override func renderData() {
         var nextY: CGFloat = 0
-        guard let context = UIGraphicsGetCurrentContext() else { return }
-       
+        var notRendered = false
+        var servicesNotRendered = [Service]()
+        
         for service in services {
+            
             var tallestTextInRow: CGFloat = 0
 
             for (index, contentArea) in tableAreaRects.enumerated() {
@@ -120,6 +145,38 @@ class ServiceQuoteTable: GenericTable {
                 ]
 
                 var testText: NSString = ""
+                
+                // Start to collect all
+                let serviceName: NSString = service.name as NSString
+                
+                var materialNameAccumulator = ""
+                
+                for material in service.materials {
+                    materialNameAccumulator += material.name + "\n"
+                }
+                
+                let materialName = materialNameAccumulator
+                
+                var materialAmountAccumulator = ""
+                
+                for material in service.materials {
+                    materialAmountAccumulator += String(material.amount) + "\n"
+                }
+                let materialAmount = materialAmountAccumulator
+                
+                let materialElevation = String(service.elevation)
+                let materialDetails = service.details
+                let materialCost = String(service.cost)
+                
+                
+                let serviceNameHeight = getHeightOfString(string: serviceName, size: contentArea.size)
+                let materialNameHeight = getHeightOfString(string: materialName as NSString, size: contentArea.size)
+                let materialAmountHeight = getHeightOfString(string: materialAmount as NSString, size: contentArea.size)
+                let materialElevationHeight = getHeightOfString(string: materialElevation as NSString, size: contentArea.size)
+                let materialDetailsHeight = getHeightOfString(string: materialDetails as NSString, size: contentArea.size)
+                let materialCostHeight = getHeightOfString(string: materialCost as NSString, size: contentArea.size)
+                let heights = [serviceNameHeight, materialNameHeight, materialAmountHeight, materialElevationHeight, materialDetailsHeight, materialCostHeight].max()
+
                 
                 if index == 0 {
                     testText = service.name as NSString
@@ -152,22 +209,25 @@ class ServiceQuoteTable: GenericTable {
                 if height > tallestTextInRow {
                     tallestTextInRow = height
                 }
-
-                print("Content Area max y \(contentArea.maxY)")
-                print("New Text Rect max y \(newTextRect.maxY)")
                 
-                if newTextRect.maxY < contentArea.maxY {
+                if contentArea.minY + nextY + heights! < contentArea.maxY && notRendered == false {
                     testText.draw(in: newTextRect, withAttributes: headerTextAttributes)
+                } else {
+                    notRendered = true
+                    break
                 }
             }
+            
+            if notRendered {
+                servicesNotRendered.append(service)
+            }
+            
             nextY += tallestTextInRow
-
         }
-        
-        
-        
-        
+        self.services = servicesNotRendered
     }
+    
+    
     
     
 }
@@ -175,15 +235,28 @@ class ServiceQuoteTable: GenericTable {
 class MerchantQuotationPDFPage: NewmanPDFPage {
     var serviceTableRect: CGRect?
     var extrasTableRect: CGRect?
+    var data: MerchantQuotationPDFPageData
+    
+    init(data: MerchantQuotationPDFPageData) {
+        self.data = data
+    }
+    
+    func getServices() -> [Service] {
+        return self.data.services
+    }
+    
+    func getExtraServices() -> [ExtraService] {
+        return self.data.extraServices
+    }
     
     func renderServiceTable() {
         // This should be 80% of the height of the table area and should start at the top of this rect.
         serviceTableRect = CGRect(x: marginLeft, y: tableRect!.minY, width: (getDrawableRect()?.width)!, height: tableRect!.height / 100 * 80)
     
         guard let context = UIGraphicsGetCurrentContext() else { return }
-        context.addRect(getDrawableRect()!)
+        //context.addRect(getDrawableRect()!)
         context.drawPath(using: .stroke)
-        context.setFillColor(UIColor.red.cgColor)
+        context.setFillColor(UIColor.white.cgColor)
         context.fill(serviceTableRect!)
     
         
@@ -194,22 +267,10 @@ class MerchantQuotationPDFPage: NewmanPDFPage {
         let detailsHeader = GenericTableHeader(text: "DETAILS", percentageWidth: 16.666)
         let priceHeader = GenericTableHeader(text: "", percentageWidth: 16.666)
         
-        
-        
-        
-        // Construct dummy data:
-        let material1 = Material(name: "Material One", amount: 5)
-        let material2 = Material(name: "Material Two", amount: 10)
-        
-        let service = Service(name: "Water Proofing", materials: [material1, material2], elevation: 5, details: "W", cost: 55.55)
-        let electrics = Service(name: "Electrix", materials: [material1, material2], elevation: 5, details: "A", cost: 200.50)
-                // End dummy data
-        
-        
-        
         // Create a table instance
-        let serviceTable = ServiceQuoteTable(area: serviceTableRect!, headers: [serviceHeader, materialHeader, amountHeader, elevationHeader, detailsHeader, priceHeader], services: [service, electrics, service, service, service, service, electrics, electrics, electrics, electrics, electrics])
+        let serviceTable = ServiceQuoteTable(area: serviceTableRect!, headers: [serviceHeader, materialHeader, amountHeader, elevationHeader, detailsHeader, priceHeader], services: self.data.services)
         serviceTable.render()
+        self.data.services = serviceTable.getServices()
     
     }
     
@@ -218,22 +279,31 @@ class MerchantQuotationPDFPage: NewmanPDFPage {
         extrasTableRect = CGRect(x: marginLeft, y: marginTop + headerRect!.height + tableRect!.height / 100 * 80, width: (getDrawableRect()?.width)!, height: tableRect!.height / 100 * 20)
         
         guard let context = UIGraphicsGetCurrentContext() else { return }
-        context.addRect(getDrawableRect()!)
+        //context.addRect(getDrawableRect()!)
         context.drawPath(using: .stroke)
-        context.setFillColor(UIColor.yellow.cgColor)
+        context.setFillColor(UIColor.white.cgColor)
         context.fill(extrasTableRect!)
         
+        let extraServicesHeader = GenericTableHeader(text: "EXTRA SERVICES", percentageWidth: 80)
+        let expectedCostHeader = GenericTableHeader(text: "EXPECTED COST", percentageWidth: 20)
         
+        //let extraService1 = ExtraService(name: "Extra Service 1", price: 100.00)
         
-        
-        
+        let extraServicesTable = ExtraServicesTable(area: extrasTableRect!, headers: [extraServicesHeader, expectedCostHeader], extraServices: data.extraServices)
+        extraServicesTable.render()
+        self.data.extraServices = extraServicesTable.getExtraServices()
     }
     
-    
-    
-    func renderTable(headers: [String]) {
+    func getNextPage() {
+        prepareForNewPage()
+        //renderDrawableAreaOutline()
+        renderHeaderRect()
+        //renderTableRect()
+        renderFooterRect()
+        renderServiceTable()
+        
+        
+        renderExtrasTable()
         
     }
-    
-    
 }

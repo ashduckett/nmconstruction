@@ -48,7 +48,6 @@ class NewmanField: UIView {
             textField.leftView = leftPaddingView
             textField.leftViewMode = .always
             textField.placeholder = self.placeholders![index]
-            print("Adding text field")
             horizontalSubview.addArrangedSubview(textField)
         }
         
