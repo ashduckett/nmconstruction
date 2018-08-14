@@ -12,6 +12,7 @@ class NewmanFormViewController: UIViewController {
 
     var formFields = [NewmanField]()
     var quotationNumberField: SingleCenteredFieldView!
+    var quotationApproxTotal: SingleLeftSideField!
     
     @IBOutlet weak var formContainer: UIStackView!
     
@@ -142,6 +143,7 @@ class NewmanFormViewController: UIViewController {
     func setupForm() {
         
         quotationNumberField = SingleCenteredFieldView(placeholders: [""], label: "QUOTE REQUISITION", textFieldCount: 0, type: .quoteRequisitionNumber)
+        quotationApproxTotal = SingleLeftSideField(placeholders: [""], label: "APPROX TOTAL", textFieldCount: 0, type: .approxTotal)
         print("setting up form")
         formFields = [
             quotationNumberField,
@@ -155,7 +157,11 @@ class NewmanFormViewController: UIViewController {
             FullLengthTextField(placeholders: ["DETAIL/s"], delegate: self, textFieldCount: 1, type: .details),
             // TextFieldPairView(placeholders: ["GUARANTEE", "EXPECTED PRICE"], delegate: nil),
             FullLengthTextField(placeholders: ["NOTE/s"], delegate: nil, textFieldCount: 1, type: .notes),
-            SingleCenteredFieldView(placeholders: [""], label: "APPROX TOTAL", textFieldCount: 0, type: .approxTotal)
+            
+            
+            
+            //SingleCenteredFieldView(placeholders: [""], label: "APPROX TOTAL", textFieldCount: 0, type: .approxTotal)
+            quotationApproxTotal
         ]
         
         for formField in formFields {

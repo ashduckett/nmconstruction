@@ -30,19 +30,28 @@ class SingleLeftSideField: NewmanField {
         label.text = self.label!
         label.translatesAutoresizingMaskIntoConstraints = false
         label.setContentHuggingPriority(UILayoutPriority.defaultHigh, for: .horizontal)
+        
         super.setupHorizontalSubview()
         
         let verticalStackView = UIStackView()
         verticalStackView.axis = .vertical
         verticalStackView.distribution = .fillProportionally
-        verticalStackView.alignment = .center
+        verticalStackView.alignment = .leading
         
         let horizontalStackView = UIStackView()
         horizontalStackView.axis = .horizontal
         horizontalStackView.addArrangedSubview(label)
+        horizontalStackView.spacing = 10
+        label.leadingAnchor.constraint(equalTo: horizontalStackView.leadingAnchor, constant: 25).isActive = true
+
+
+        
         
         let textField = UITextField()
-        textField.borderStyle = .roundedRect
+        textField.borderStyle = .line
+        textField.frame.size.height = 200
+        textField.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        
         horizontalStackView.addArrangedSubview(textField)
         verticalStackView.addArrangedSubview(horizontalStackView)
         

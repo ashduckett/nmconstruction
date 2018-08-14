@@ -42,11 +42,14 @@ class SingleCenteredFieldView: NewmanField {
         let horizontalStackView = UIStackView()
         horizontalStackView.axis = .horizontal
         horizontalStackView.addArrangedSubview(label)
-
+        horizontalStackView.spacing = 10
+        
+       // horizontalStackView.distribution = .fillProportionally
         //let textField = UITextField()
         //textField.borderStyle = .roundedRect
         textField.borderStyle = .line
-        
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.widthAnchor.constraint(equalToConstant: 100).isActive = true
         horizontalStackView.addArrangedSubview(textField)
 
         verticalStackView.addArrangedSubview(horizontalStackView)
