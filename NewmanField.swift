@@ -61,7 +61,7 @@ class NewmanField: UIView {
         horizontalSubview.distribution = .fillEqually
         horizontalSubview.alignment = .center
         horizontalSubview.translatesAutoresizingMaskIntoConstraints = false
-        horizontalSubview.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+        horizontalSubview.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 50).isActive = true
         horizontalSubview.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -50).isActive = true
         horizontalSubview.topAnchor.constraint(equalTo: topAnchor).isActive = true
         horizontalSubview.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
@@ -72,9 +72,10 @@ class NewmanField: UIView {
             addFieldButton.setTitle("+", for: .normal)
             addFieldButton.translatesAutoresizingMaskIntoConstraints = false
             addFieldButton.leadingAnchor.constraint(equalTo: horizontalSubview.trailingAnchor, constant: 5).isActive = true
-            addFieldButton.topAnchor.constraint(equalTo: horizontalSubview.bottomAnchor, constant: -20).isActive = true
+            addFieldButton.topAnchor.constraint(equalTo: horizontalSubview.bottomAnchor, constant: -15).isActive = true
             addFieldButton.addTarget(self, action: #selector(plusButtonTapped), for: .touchUpInside)
         }
+        
         
         
         translatesAutoresizingMaskIntoConstraints = false
