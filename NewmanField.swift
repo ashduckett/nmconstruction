@@ -12,7 +12,7 @@ class NewmanField: UIView {
     let horizontalSubview = UIStackView()
     var delegate: NewmanFormViewController?
     let addFieldButton = UIButton(type: .system)
-    var textFields: [UITextField]?
+    var textFields: [RightPaddedTextField]?
     var placeholders: [String]?
     var type: NewmanFieldType?
     
@@ -24,7 +24,7 @@ class NewmanField: UIView {
         self.delegate = delegate
         self.type = type
         // Initialise two new UITextField instances
-        textFields = (0..<textFieldCount).map { _ in UITextField() }
+        textFields = (0..<textFieldCount).map { _ in RightPaddedTextField() }
         
         self.placeholders = placeholders
     }

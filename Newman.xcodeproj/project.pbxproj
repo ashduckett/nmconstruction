@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5E34A03D2122379100D60A81 /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E34A03C2122379100D60A81 /* Quote.swift */; };
+		5E4B9284212325D0001C049A /* RightPaddedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4B9283212325D0001C049A /* RightPaddedTextField.swift */; };
 		5E94D2D52122563B0037D991 /* NewmanFieldType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E94D2D42122563B0037D991 /* NewmanFieldType.swift */; };
 		5E94D2D721226BE00037D991 /* StockServiceField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E94D2D621226BE00037D991 /* StockServiceField.swift */; };
 		5E9540D52118B9D8002978E8 /* QuotationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9540D42118B9D8002978E8 /* QuotationViewController.swift */; };
@@ -42,6 +43,7 @@
 
 /* Begin PBXFileReference section */
 		5E34A03C2122379100D60A81 /* Quote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
+		5E4B9283212325D0001C049A /* RightPaddedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightPaddedTextField.swift; sourceTree = "<group>"; };
 		5E94D2D42122563B0037D991 /* NewmanFieldType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewmanFieldType.swift; sourceTree = "<group>"; };
 		5E94D2D621226BE00037D991 /* StockServiceField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockServiceField.swift; sourceTree = "<group>"; };
 		5E9540D42118B9D8002978E8 /* QuotationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotationViewController.swift; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 				5ED17E0620FBE57700146B20 /* MaterialField.swift */,
 				5ED17E0720FBE57700146B20 /* NewmanField.swift */,
 				5ED17E0520FBE57700146B20 /* PictureField.swift */,
+				5E4B9283212325D0001C049A /* RightPaddedTextField.swift */,
 				5ED17E0A20FBE57700146B20 /* SingleCenteredFieldView.swift */,
 				5ED17E0820FBE57700146B20 /* SingleLeftSideField.swift */,
 				5ED17E0920FBE57700146B20 /* SubstrateField.swift */,
@@ -225,6 +228,7 @@
 				5ED17E1320FBE57700146B20 /* SingleCenteredFieldView.swift in Sources */,
 				5ECAF6A8211F84B300771070 /* Service.swift in Sources */,
 				5ED17E0E20FBE57700146B20 /* PictureField.swift in Sources */,
+				5E4B9284212325D0001C049A /* RightPaddedTextField.swift in Sources */,
 				5ECAF6A4211F833500771070 /* ExtraService.swift in Sources */,
 				5ECAF6AA211F85A700771070 /* ServiceQuoteImageTable.swift in Sources */,
 				5ECAF6A2211F803300771070 /* MerchantQuotationImagePDFPage.swift in Sources */,

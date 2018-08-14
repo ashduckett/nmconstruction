@@ -49,6 +49,15 @@ class PictureField: NewmanField, UIImagePickerControllerDelegate, UINavigationCo
         
         textFields![0].layer.borderColor = UIColor.orange.cgColor
         
+        let image = UIImage(named: "cameraIcon")
+        
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: (image?.size.width)!, height: (image?.size.height)!))
+        imageView.image = image
+        
+        textFields![0].rightView = imageView
+        textFields![0].rightViewMode = .always
+        
+        
         
     }
     
