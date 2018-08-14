@@ -14,8 +14,8 @@ protocol NewmanFieldDelegate {
 
 class TextFieldPairView: NewmanField, NewmanFieldDelegate {
     
-    init(placeholders: [String], delegate: NewmanFormViewController) {
-        super.init(frame: CGRect.zero, delegate: delegate, textFieldCount: 2, placeholders: placeholders)
+    init(placeholders: [String], delegate: NewmanFormViewController?, type: NewmanFieldType) {
+        super.init(frame: CGRect.zero, delegate: delegate, textFieldCount: 2, placeholders: placeholders, type: type)
     }
         
     required init(coder aDecoder: NSCoder) {

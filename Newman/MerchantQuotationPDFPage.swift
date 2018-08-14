@@ -56,13 +56,7 @@ class GenericTable {
         if let headers = self.headers {
             for header in headers {
                 let headerRect = CGRect(x: currentLeft, y: area!.minY, width: area!.width / 100 * header.percentageWidth, height: headerHeight)
-                
-                //context.addRect(headerRect)
-                
-                //context.setFillColor(UIColor.orange.cgColor)
-                //context.setStrokeColor(UIColor.orange.cgColor)
-                
-                //context.drawPath(using: .stroke)
+
                 let headerTextFont = UIFont(name: "Academy Engraved LET", size: 12)
             
                 let headerTextAttributes = [
@@ -79,10 +73,11 @@ class GenericTable {
                 // Calculate the content areas for each column
                 var contentArea = CGRect(x: currentLeft, y: headerRect.maxY, width: headerRect.width, height: (area?.height)! - headerHeight)
                 tableAreaRects.append(contentArea)
+                
+                // Draw the gray lines for the segments of the table
                 context.addRect(contentArea)
                 context.setStrokeColor(UIColor.lightGray.cgColor)
                 context.drawPath(using: .stroke)
-                
                 currentLeft += headerRect.width
             
             }
@@ -236,9 +231,11 @@ class MerchantQuotationPDFPage: NewmanPDFPage {
     var serviceTableRect: CGRect?
     var extrasTableRect: CGRect?
     var data: MerchantQuotationPDFPageData
+    var quote: Quote?
     
-    init(data: MerchantQuotationPDFPageData) {
+    init(data: MerchantQuotationPDFPageData, quote: Quote) {
         self.data = data
+        self.quote = quote
     }
     
     func getServices() -> [Service] {
@@ -301,9 +298,11 @@ class MerchantQuotationPDFPage: NewmanPDFPage {
         //renderTableRect()
         renderFooterRect()
         renderServiceTable()
-        
-        
         renderExtrasTable()
         
+    }
+    
+    override func getQuote() -> Quote {
+        return self.quote!
     }
 }

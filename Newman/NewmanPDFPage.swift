@@ -60,20 +60,18 @@ class NewmanPDFPage: PDFPage {
         
         let imageRect = CGRect(x: x, y: y, width: 191.333, height: 49)
         
-//        context.draw((image?.cgImage)!, in: imageRect)
+
         
         UIGraphicsPushContext(context)
-        //CGContextSaveGState(context)
+
         context.saveGState()
-        //CGContextTranslateCTM(context, 0, 10)
-       // context.translateBy(x: 0, y: imageRect.height + y)
-        
-        //context.scaleBy(x: 1.0, y: -1.0)
-       // context.draw((image?.cgImage)!, in: imageRect)
+
         image?.draw(in: imageRect)
         let headerTextFont = UIFont(name: "Academy Engraved LET", size: 12)
-        let clientName = "This is the client name"
-        let clientAddress = "This is the client address"
+        let clientName = self.getQuote().clientName
+        //print("The client name entered is \(getClientName())")
+        
+        let clientAddress = self.getQuote().clientAddress
         let clientNameAndAddress = "\(clientName)\n\(clientAddress)"
         
         let headerTextAttributes = [
@@ -116,7 +114,7 @@ class NewmanPDFPage: PDFPage {
         
         
         let merchantCopyNumberFont = UIFont(name: "Academy Engraved LET", size: 12)
-        let merchantCopyNumber = "MERCHANT COPY NO#"
+        let merchantCopyNumber = "MERCHANT COPY NO# \(self.getQuote().quoteNumber)"
 
         let merchantCopyNumberTextAttributes = [
             NSAttributedStringKey.font: merchantCopyNumberFont,
@@ -132,8 +130,15 @@ class NewmanPDFPage: PDFPage {
         
         
         // Date
+        // Same in all headers so this can be done here
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM/yyyy"
+        
         let dateFont = UIFont(name: "Academy Engraved LET", size: 12)
-        let date = "Date here"
+        var date = "Date here"
+        
+        let todaysDate = Date()
+        date = "Date: \(dateFormatter.string(from: todaysDate))"
         
         let dateTextAttributes = [
             NSAttributedStringKey.font: dateFont,
@@ -162,6 +167,11 @@ class NewmanPDFPage: PDFPage {
         context.restoreGState()
         UIGraphicsPopContext()
         
+    }
+    
+    func getQuote() -> Quote {
+        // This should never be called
+        return Quote(quotationNumber: "Override Me", clientName: "", clientAddress: "")
     }
     
     

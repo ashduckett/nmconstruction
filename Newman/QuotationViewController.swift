@@ -14,10 +14,12 @@ struct Header {
     let text: NSString
 }
 
-
 class QuotationViewController: UIViewController {
     var testText: String?
     let pdfView = PDFView()
+    
+    
+    var quote: Quote?
     
     @IBOutlet weak var topBar: UIView!
     @IBOutlet weak var bottomBar: UIView!
@@ -32,6 +34,7 @@ class QuotationViewController: UIViewController {
         pdfView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
         pdfView.bottomAnchor.constraint(equalTo: bottomBar.topAnchor).isActive = true
         pdfView.topAnchor.constraint(equalTo: topBar.bottomAnchor).isActive = true
+        pdfView.autoScales = true
         
         createPDF()
         
@@ -100,13 +103,15 @@ class QuotationViewController: UIViewController {
         
         let data = MerchantQuotationPDFPageData(services: services, extraServices: [extraService1, extraService2, extraService3, extraService4, extraService5, extraService6, extraService7, extraService8, extraService9, extraService10, extraService12, extraService13, extraService14, extraService15, extraService1])
         
-        let pdfPage = MerchantQuotationPDFPage(data: data)
+
+        
+        let pdfPage = MerchantQuotationPDFPage(data: data, quote: self.quote!)
         while pdfPage.getServices().count > 0 || pdfPage.getExtraServices().count > 0 {
             pdfPage.getNextPage()
         }
         
         // Now let's render the second page
-        let pdfImagePage = MerchantQuotationImagePDFPage(data: data)
+        let pdfImagePage = MerchantQuotationImagePDFPage(data: data, quote: self.quote!)
         while pdfImagePage.getServices().count > 0 {
             pdfImagePage.getNextPage()
         }

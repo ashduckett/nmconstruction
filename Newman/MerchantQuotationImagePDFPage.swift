@@ -13,9 +13,11 @@ class MerchantQuotationImagePDFPage: NewmanPDFPage {
     var serviceImageTableRect: CGRect?
     var notesTableRect: CGRect?
     var data: MerchantQuotationPDFPageData
+    var quote: Quote?
     
-    init(data: MerchantQuotationPDFPageData) {
+    init(data: MerchantQuotationPDFPageData, quote: Quote) {
         self.data = data
+        self.quote = quote
     }
     
     func getServices() -> [Service] {
@@ -72,5 +74,9 @@ class MerchantQuotationImagePDFPage: NewmanPDFPage {
         renderFooterRect()
         renderServiceImageTable()
         renderNotesTable()
+    }
+    
+    override func getQuote() -> Quote {
+        return self.quote!
     }
 }

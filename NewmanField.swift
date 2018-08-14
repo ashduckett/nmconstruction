@@ -14,13 +14,15 @@ class NewmanField: UIView {
     let addFieldButton = UIButton(type: .system)
     var textFields: [UITextField]?
     var placeholders: [String]?
-
+    var type: NewmanFieldType?
     
-    init(frame: CGRect, delegate: NewmanFormViewController?, textFieldCount: Int, placeholders: [String]) {
+    init(frame: CGRect, delegate: NewmanFormViewController?, textFieldCount: Int, placeholders: [String], type: NewmanFieldType) {
         super.init(frame: frame)
-        
+        print("calling")
+        self.type = type
+        print(self.type)
         self.delegate = delegate
-        
+        self.type = type
         // Initialise two new UITextField instances
         textFields = (0..<textFieldCount).map { _ in UITextField() }
         

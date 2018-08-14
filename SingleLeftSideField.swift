@@ -16,8 +16,8 @@ class SingleLeftSideField: NewmanField {
     let containingView = UIView()
     var label: String?
     
-    init(placeholders: [String], label: String, textFieldCount: Int) {
-        super.init(frame: CGRect.zero, delegate: nil, textFieldCount: textFieldCount, placeholders: placeholders)
+    init(placeholders: [String], label: String, textFieldCount: Int, type: NewmanFieldType) {
+        super.init(frame: CGRect.zero, delegate: nil, textFieldCount: textFieldCount, placeholders: placeholders, type: type)
         self.label = label
     }
     

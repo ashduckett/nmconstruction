@@ -10,8 +10,8 @@ import UIKit
 
 class ThreeTextFieldView: NewmanField, NewmanFieldDelegate {
     
-    init(placeholders: [String], delegate: NewmanFormViewController, textFieldCount: Int) {
-        super.init(frame: CGRect.zero, delegate: delegate, textFieldCount: textFieldCount, placeholders: placeholders)
+    init(placeholders: [String], delegate: NewmanFormViewController, textFieldCount: Int, type: NewmanFieldType) {
+        super.init(frame: CGRect.zero, delegate: delegate, textFieldCount: textFieldCount, placeholders: placeholders, type: type)
     }
     
     required init(coder aDecoder: NSCoder) {

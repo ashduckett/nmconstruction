@@ -8,8 +8,8 @@
 
 import UIKit
 
-class MaterialField: NewmanField, UIPickerViewDelegate, UIPickerViewDataSource, NewmanFieldDelegate {
-        
+class StockServiceField: NewmanField, UIPickerViewDelegate, UIPickerViewDataSource, NewmanFieldDelegate {
+    
     var myPickerData = [String]()
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -27,18 +27,17 @@ class MaterialField: NewmanField, UIPickerViewDelegate, UIPickerViewDataSource, 
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         textFields![0].text = myPickerData[row]
     }
-
-    let materialSelector = UIPickerView()
     
-    init(placeholders: [String], delegate: NewmanFormViewController, textFieldCount: Int, type: NewmanFieldType) {
+    let serviceSelector = UIPickerView()
+    
+    init(placeholders: [String], delegate: NewmanFormViewController?, textFieldCount: Int, type: NewmanFieldType) {
         super.init(frame: CGRect.zero, delegate: delegate, textFieldCount: textFieldCount, placeholders: placeholders, type: type)
         
         for stockItem in StockMaterials.getStockMaterials() {
             self.myPickerData.append(stockItem.name)
         }
-        //self.type = .material
         
-        materialSelector.delegate = self
+        serviceSelector.delegate = self
     }
     
     
@@ -48,9 +47,10 @@ class MaterialField: NewmanField, UIPickerViewDelegate, UIPickerViewDataSource, 
     
     override func setupViewHierarchy() {
         super.setupHorizontalSubview()
-        textFields![0].inputView = materialSelector
+        textFields![0].inputView = serviceSelector
         addSubview(horizontalSubview)
         horizontalSubview.setCustomSpacing(10, after: textFields![0])
     }
-
+    
 }
+

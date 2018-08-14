@@ -12,14 +12,19 @@ class SingleCenteredFieldView: NewmanField {
     
     let containingView = UIView()
     var label: String?
+    var textField = UITextField()
     
-    init(placeholders: [String], label: String, textFieldCount: Int) {
-        super.init(frame: CGRect.zero, delegate: nil, textFieldCount: textFieldCount, placeholders: placeholders)
+    init(placeholders: [String], label: String, textFieldCount: Int, type: NewmanFieldType) {
+        super.init(frame: CGRect.zero, delegate: nil, textFieldCount: textFieldCount, placeholders: placeholders, type: type)
         self.label = label
     }
     
     required init(coder aDecoder: NSCoder) {
         fatalError("This class does not support NSCoding")
+    }
+    
+    func getText() -> String {
+        return textField.text!
     }
 
     override func setupViewHierarchy() {
@@ -38,7 +43,7 @@ class SingleCenteredFieldView: NewmanField {
         horizontalStackView.axis = .horizontal
         horizontalStackView.addArrangedSubview(label)
 
-        let textField = UITextField()
+        //let textField = UITextField()
         //textField.borderStyle = .roundedRect
         textField.borderStyle = .line
         

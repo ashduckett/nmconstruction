@@ -10,9 +10,9 @@ import UIKit
 
 class FullLengthTextField: NewmanField, NewmanFieldDelegate {
     
-    init(placeholders: [String], delegate: NewmanFormViewController, textFieldCount: Int) {
+    init(placeholders: [String], delegate: NewmanFormViewController?, textFieldCount: Int, type: NewmanFieldType) {
         
-        super.init(frame: CGRect.zero, delegate: delegate, textFieldCount: textFieldCount, placeholders: placeholders)
+        super.init(frame: CGRect.zero, delegate: delegate, textFieldCount: textFieldCount, placeholders: placeholders, type: type)
     }
 
     required init(coder aDecoder: NSCoder) {
