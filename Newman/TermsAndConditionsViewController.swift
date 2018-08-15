@@ -7,11 +7,33 @@
 //
 
 import UIKit
+import PDFKit
+
 
 class TermsAndConditionsViewController: UIViewController {
-
+    @IBOutlet weak var bottomBar: UIView!
+    @IBOutlet weak var topBar: UIView!
+    let pdfView = PDFView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        pdfView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(pdfView)
+        
+        pdfView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
+        pdfView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
+        pdfView.bottomAnchor.constraint(equalTo: bottomBar.topAnchor).isActive = true
+        pdfView.topAnchor.constraint(equalTo: topBar.bottomAnchor).isActive = true
+        pdfView.autoScales = true
+        
+        if let path = Bundle.main.path(forResource: "Terms and Conditions", ofType: "pdf") {
+            let url = URL(fileURLWithPath: path)
+            
+            if let pdfDocument = PDFDocument(url: url) {
+                pdfView.document = pdfDocument
+            }
+        }
 
         // Do any additional setup after loading the view.
     }
@@ -31,5 +53,9 @@ class TermsAndConditionsViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    
+    @IBAction func goBack(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
 }

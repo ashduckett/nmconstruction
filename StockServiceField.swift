@@ -33,7 +33,7 @@ class StockServiceField: NewmanField, UIPickerViewDelegate, UIPickerViewDataSour
     init(placeholders: [String], delegate: NewmanFormViewController?, textFieldCount: Int, type: NewmanFieldType) {
         super.init(frame: CGRect.zero, delegate: delegate, textFieldCount: textFieldCount, placeholders: placeholders, type: type)
         
-        for stockItem in StockMaterials.getStockMaterials() {
+        for stockItem in StockServices.getStockServices() {
             self.myPickerData.append(stockItem.name)
         }
         

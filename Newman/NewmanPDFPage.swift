@@ -15,7 +15,6 @@ class NewmanPDFPage: PDFPage {
     var footerRect: CGRect?
     
     override init() {
-        print("NewmainPDFPage constructor has been called")
         super.init()
     }
     
@@ -53,12 +52,12 @@ class NewmanPDFPage: PDFPage {
     
     func renderHeader() {
         guard let context = UIGraphicsGetCurrentContext() else { return }
-        let image = UIImage(named: "newmanlogo")
+        let image = UIImage(named: "PDFLogo")
         
         let x = context.boundingBoxOfClipPath.minX + marginLeft
         let y = context.boundingBoxOfClipPath.minY + marginTop
         
-        let imageRect = CGRect(x: x, y: y, width: 191.333, height: 49)
+        let imageRect = CGRect(x: x, y: y, width: (image?.size.width)! / 7, height: (image?.size.height)! / 7)
         
 
         
@@ -67,9 +66,10 @@ class NewmanPDFPage: PDFPage {
         context.saveGState()
 
         image?.draw(in: imageRect)
-        let headerTextFont = UIFont(name: "Academy Engraved LET", size: 12)
+        
+        // label.font = UIFont(name: "MyriadPro-Regular", size: 16)
+        let headerTextFont = UIFont(name: "MyriadPro-Regular", size: 12)
         let clientName = self.getQuote().clientName
-        //print("The client name entered is \(getClientName())")
         
         let clientAddress = self.getQuote().clientAddress
         let clientNameAndAddress = "\(clientName)\n\(clientAddress)"
@@ -96,7 +96,8 @@ class NewmanPDFPage: PDFPage {
         
         
         
-        let quotationTextFont = UIFont(name: "Academy Engraved LET", size: 24)
+        let quotationTextFont = UIFont(name: "MyriadPro-Regular", size: 24)
+        
         let quotationString = "Quotation"
         let quotationTextAttributes = [
             NSAttributedStringKey.font: quotationTextFont,
@@ -113,7 +114,7 @@ class NewmanPDFPage: PDFPage {
         
         
         
-        let merchantCopyNumberFont = UIFont(name: "Academy Engraved LET", size: 12)
+        let merchantCopyNumberFont = UIFont(name: "MyriadPro-Regular", size: 12)
         let merchantCopyNumber = "MERCHANT COPY NO# \(self.getQuote().quoteNumber)"
 
         let merchantCopyNumberTextAttributes = [
@@ -134,7 +135,7 @@ class NewmanPDFPage: PDFPage {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd/MM/yyyy"
         
-        let dateFont = UIFont(name: "Academy Engraved LET", size: 12)
+        let dateFont = UIFont(name: "MyriadPro-Regular", size: 12)
         var date = "Date here"
         
         let todaysDate = Date()
@@ -151,7 +152,7 @@ class NewmanPDFPage: PDFPage {
         let topOfHeader = headerRect?.maxY
         
         let difference = (topOfHeader! - bottomOfMerchantCopyNumber) / 2
-        print(difference)
+        
         
         
         let dateTextSize = date.boundingRect(with: CGSize(width: imageRect.width, height: imageRect.height), options: .usesLineFragmentOrigin, attributes: dateTextAttributes, context: nil).size
@@ -171,7 +172,7 @@ class NewmanPDFPage: PDFPage {
     
     func getQuote() -> Quote {
         // This should never be called
-        return Quote(quotationNumber: "Override Me", clientName: "", clientAddress: "")
+        return Quote(quotationNumber: "Override Me", clientName: "", clientAddress: "", services: [Service](), extraServices: [ExtraService]())
     }
     
     

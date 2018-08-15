@@ -32,6 +32,7 @@ class SingleCenteredFieldView: NewmanField {
         label.text = self.label!
         label.translatesAutoresizingMaskIntoConstraints = false
         label.setContentHuggingPriority(UILayoutPriority.defaultHigh, for: .horizontal)
+        label.font = UIFont(name: "MyriadPro-Regular", size: 16)
         super.setupHorizontalSubview()
         
         let verticalStackView = UIStackView()
@@ -50,6 +51,12 @@ class SingleCenteredFieldView: NewmanField {
         textField.borderStyle = .line
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        textField.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        
+        let leftPaddingView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: textField.frame.height))
+        textField.leftView = leftPaddingView
+        textField.leftViewMode = .always
+        textField.keyboardType = .numberPad
         horizontalStackView.addArrangedSubview(textField)
 
         verticalStackView.addArrangedSubview(horizontalStackView)

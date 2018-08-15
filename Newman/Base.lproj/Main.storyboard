@@ -21,8 +21,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9nF-8V-n0F">
                                 <rect key="frame" x="0.0" y="44" width="375" height="100"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="newmanlogo" translatesAutoresizingMaskIntoConstraints="NO" id="Whv-Re-4Pn">
-                                        <rect key="frame" x="10" y="-23" width="200" height="147"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PDFLogo" translatesAutoresizingMaskIntoConstraints="NO" id="Whv-Re-4Pn">
+                                        <rect key="frame" x="87.666666666666686" y="-115.66666666666667" width="200" height="332.33333333333331"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="200" id="diZ-nv-fvZ"/>
                                         </constraints>
@@ -30,9 +30,9 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="Whv-Re-4Pn" firstAttribute="leading" secondItem="9nF-8V-n0F" secondAttribute="leading" constant="10" id="8Ep-im-PxB"/>
                                     <constraint firstItem="Whv-Re-4Pn" firstAttribute="centerY" secondItem="9nF-8V-n0F" secondAttribute="centerY" id="D0e-7w-E1n"/>
                                     <constraint firstAttribute="height" constant="100" id="Z2L-CL-Z1w"/>
+                                    <constraint firstItem="Whv-Re-4Pn" firstAttribute="centerX" secondItem="9nF-8V-n0F" secondAttribute="centerX" id="mG0-Ch-NAE"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ODc-Z9-gFf">
@@ -56,7 +56,7 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="q2T-93-rUQ">
                                 <rect key="frame" x="50" y="182" width="275" height="804"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="a7M-HI-6iI">
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" distribution="fillEqually" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="a7M-HI-6iI">
                                         <rect key="frame" x="0.0" y="201" width="275" height="200"/>
                                     </stackView>
                                 </subviews>
@@ -118,6 +118,9 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cFA-Bu-giQ">
                                                 <rect key="frame" x="83.999999999999986" y="0.0" width="80.000000000000014" height="100"/>
                                                 <state key="normal" title="View Terms"/>
+                                                <connections>
+                                                    <action selector="viewTermsPressed:" destination="a3X-Le-ACw" eventType="touchUpInside" id="ZWo-Ea-koE"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -132,8 +135,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bdJ-tg-Byh">
                                 <rect key="frame" x="0.0" y="44" width="375" height="100"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="newmanlogo" translatesAutoresizingMaskIntoConstraints="NO" id="OfZ-ZJ-av4">
-                                        <rect key="frame" x="10" y="-24" width="200" height="147"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PDFLogo" translatesAutoresizingMaskIntoConstraints="NO" id="OfZ-ZJ-av4">
+                                        <rect key="frame" x="87.666666666666686" y="-116.66666666666667" width="200" height="332.33333333333331"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="200" id="Q42-Yf-6Lw"/>
                                         </constraints>
@@ -141,9 +144,9 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstItem="OfZ-ZJ-av4" firstAttribute="centerX" secondItem="bdJ-tg-Byh" secondAttribute="centerX" id="6wq-nZ-mbC"/>
                                     <constraint firstAttribute="height" constant="100" id="Pyh-jX-4lo"/>
                                     <constraint firstItem="OfZ-ZJ-av4" firstAttribute="centerY" secondItem="bdJ-tg-Byh" secondAttribute="centerY" id="Zuf-MV-jL4"/>
-                                    <constraint firstItem="OfZ-ZJ-av4" firstAttribute="leading" secondItem="bdJ-tg-Byh" secondAttribute="leading" constant="10" id="z2a-cx-Sid"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -161,6 +164,7 @@
                     <connections>
                         <outlet property="bottomBar" destination="QVs-WS-xaA" id="2bE-vp-4iZ"/>
                         <outlet property="topBar" destination="bdJ-tg-Byh" id="u9W-lL-dG8"/>
+                        <segue destination="cOO-Y6-kTH" kind="show" identifier="showTerms" id="6JM-Hf-w8g"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gen-M1-0iG" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -184,6 +188,9 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zs7-Lt-X7c">
                                                 <rect key="frame" x="0.0" y="0.0" width="34" height="100"/>
                                                 <state key="normal" title="Back"/>
+                                                <connections>
+                                                    <action selector="goBack:" destination="cOO-Y6-kTH" eventType="touchUpInside" id="4XW-J3-Zad"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wm3-gz-oFR">
                                                 <rect key="frame" x="84" y="0.0" width="95" height="100"/>
@@ -200,22 +207,46 @@
                                     <constraint firstAttribute="height" constant="100" id="suM-gJ-YN4"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xi9-7t-SR1">
+                                <rect key="frame" x="0.0" y="44" width="375" height="100"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PDFLogo" translatesAutoresizingMaskIntoConstraints="NO" id="HSR-mP-Y9y">
+                                        <rect key="frame" x="87" y="-116" width="200" height="332"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="200" id="MUu-nP-fAb"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="Dh4-2o-i6h"/>
+                                    <constraint firstItem="HSR-mP-Y9y" firstAttribute="centerY" secondItem="Xi9-7t-SR1" secondAttribute="centerY" id="Mfd-nZ-4CQ"/>
+                                    <constraint firstItem="HSR-mP-Y9y" firstAttribute="centerX" secondItem="Xi9-7t-SR1" secondAttribute="centerX" id="md0-Kx-cTF"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="Xi9-7t-SR1" firstAttribute="top" secondItem="Jbo-pA-cTU" secondAttribute="top" id="5ch-ls-6hz"/>
                             <constraint firstItem="Jbo-pA-cTU" firstAttribute="trailing" secondItem="WOt-9U-j0h" secondAttribute="trailing" id="Jrf-Gw-OnP"/>
+                            <constraint firstItem="Jbo-pA-cTU" firstAttribute="trailing" secondItem="Xi9-7t-SR1" secondAttribute="trailing" id="UJU-iD-7DQ"/>
                             <constraint firstItem="Jbo-pA-cTU" firstAttribute="bottom" secondItem="WOt-9U-j0h" secondAttribute="bottom" id="ZGb-lE-g0I"/>
                             <constraint firstItem="WOt-9U-j0h" firstAttribute="leading" secondItem="Jbo-pA-cTU" secondAttribute="leading" id="rrg-zr-GtC"/>
+                            <constraint firstItem="Xi9-7t-SR1" firstAttribute="leading" secondItem="Jbo-pA-cTU" secondAttribute="leading" id="vzN-Oc-MaL"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Jbo-pA-cTU"/>
                     </view>
+                    <connections>
+                        <outlet property="bottomBar" destination="WOt-9U-j0h" id="e36-En-rlZ"/>
+                        <outlet property="topBar" destination="Xi9-7t-SR1" id="ohJ-q6-5MJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D1U-Gf-3da" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1380" y="129"/>
+            <point key="canvasLocation" x="1538" y="133"/>
         </scene>
     </scenes>
     <resources>
-        <image name="newmanlogo" width="547" height="147"/>
+        <image name="PDFLogo" width="1549" height="332"/>
     </resources>
 </document>

@@ -18,7 +18,7 @@ class ServiceQuoteImageTable: GenericTable {
     }
     
     func getHeightOfString(string: NSString, size: CGSize) -> CGFloat {
-        let headerTextFont = UIFont(name: "Academy Engraved LET", size: 12)
+        let headerTextFont = UIFont(name: "MyriadPro-Regular", size: 12)
         
         let headerTextAttributes = [
             NSAttributedStringKey.font: headerTextFont,
@@ -35,7 +35,7 @@ class ServiceQuoteImageTable: GenericTable {
     }
     
     override func renderData() {
-        var nextY: CGFloat = 0
+        var nextY: CGFloat = 5
         var notRendered = false
         var servicesNotRendered = [Service]()
 
@@ -45,7 +45,7 @@ class ServiceQuoteImageTable: GenericTable {
             var tallestTextInRow: CGFloat = 0
 //
             for (index, contentArea) in tableAreaRects.enumerated() {
-                let headerTextFont = UIFont(name: "Academy Engraved LET", size: 12)
+                let headerTextFont = UIFont(name: "MyriadPro-Regular", size: 12)
 //
                 let headerTextAttributes = [
                     NSAttributedStringKey.font: headerTextFont,
@@ -63,7 +63,7 @@ class ServiceQuoteImageTable: GenericTable {
 //                let materialElevationHeight = getHeightOfString(string: materialElevation as NSString, size: contentArea.size)
 //                let materialDetailsHeight = getHeightOfString(string: materialDetails as NSString, size: contentArea.size)
 //                let materialCostHeight = getHeightOfString(string: materialCost as NSString, size: contentArea.size)
-                let heights = [serviceNameHeight].max()
+                let heights = [serviceNameHeight].max()! + 10
 //
 //
                 if index == 0 {
@@ -84,16 +84,16 @@ class ServiceQuoteImageTable: GenericTable {
                 
                 let height = testText.boundingRect(with: CGSize(width: contentArea.width, height: contentArea.height), options: .usesLineFragmentOrigin, attributes: headerTextAttributes, context: nil).size.height
 
-                let newTextRect = CGRect(x: contentArea.minX, y: contentArea.minY + nextY, width: contentArea.width, height: height)
+                let newTextRect = CGRect(x: contentArea.minX + 5, y: contentArea.minY + nextY, width: contentArea.width, height: height + 10)
                 
                 
                 
                 print(newTextRect)
                 if height > tallestTextInRow {
-                    tallestTextInRow = height
+                    tallestTextInRow = height + 10
                 }
 
-                if contentArea.minY + nextY + heights! < contentArea.maxY && notRendered == false {
+                if contentArea.minY + nextY + heights < (contentArea.maxY - 10) && notRendered == false {
                     testText.draw(in: newTextRect, withAttributes: headerTextAttributes)
                 } else {
                     notRendered = true

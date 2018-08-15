@@ -28,6 +28,7 @@ class SingleLeftSideField: NewmanField {
     override func setupViewHierarchy() {
         let label = UILabel()
         label.text = self.label!
+        label.font = UIFont(name: "MyriadPro-Regular", size: 16)
         label.translatesAutoresizingMaskIntoConstraints = false
         label.setContentHuggingPriority(UILayoutPriority.defaultHigh, for: .horizontal)
         
@@ -42,7 +43,7 @@ class SingleLeftSideField: NewmanField {
         horizontalStackView.axis = .horizontal
         horizontalStackView.addArrangedSubview(label)
         horizontalStackView.spacing = 10
-        label.leadingAnchor.constraint(equalTo: horizontalStackView.leadingAnchor, constant: 25).isActive = true
+      //  label.leadingAnchor.constraint(equalTo: horizontalStackView.leadingAnchor, constant: 25).isActive = true
 
 
         
@@ -51,6 +52,12 @@ class SingleLeftSideField: NewmanField {
         textField.borderStyle = .line
         textField.frame.size.height = 200
         textField.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        textField.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        
+        let leftPaddingView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: textField.frame.height))
+        textField.leftView = leftPaddingView
+        textField.leftViewMode = .always
+        
         
         horizontalStackView.addArrangedSubview(textField)
         verticalStackView.addArrangedSubview(horizontalStackView)

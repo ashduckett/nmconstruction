@@ -31,7 +31,7 @@ class PictureField: NewmanField, UIImagePickerControllerDelegate, UINavigationCo
     }
     
     @objc func pictureFieldTapped() {
-        print("Method fired")
+        //print("Method fired")
         
         imagePicker.allowsEditing = false
         imagePicker.sourceType = .savedPhotosAlbum
@@ -62,7 +62,7 @@ class PictureField: NewmanField, UIImagePickerControllerDelegate, UINavigationCo
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        print(info)
+       // print(info)
     }
 
 }

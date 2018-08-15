@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		5E34A03D2122379100D60A81 /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E34A03C2122379100D60A81 /* Quote.swift */; };
 		5E4B9284212325D0001C049A /* RightPaddedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4B9283212325D0001C049A /* RightPaddedTextField.swift */; };
+		5E4B928621233BAB001C049A /* StockService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4B928521233BAB001C049A /* StockService.swift */; };
+		5E4B92A72123898B001C049A /* Myriad Pro Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5E4B92A62123898B001C049A /* Myriad Pro Regular.ttf */; };
+		5E857E962123A69D004E8FF6 /* Terms and Conditions.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 5E857E952123A69D004E8FF6 /* Terms and Conditions.pdf */; };
 		5E94D2D52122563B0037D991 /* NewmanFieldType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E94D2D42122563B0037D991 /* NewmanFieldType.swift */; };
 		5E94D2D721226BE00037D991 /* StockServiceField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E94D2D621226BE00037D991 /* StockServiceField.swift */; };
 		5E9540D52118B9D8002978E8 /* QuotationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9540D42118B9D8002978E8 /* QuotationViewController.swift */; };
@@ -44,6 +47,9 @@
 /* Begin PBXFileReference section */
 		5E34A03C2122379100D60A81 /* Quote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
 		5E4B9283212325D0001C049A /* RightPaddedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightPaddedTextField.swift; sourceTree = "<group>"; };
+		5E4B928521233BAB001C049A /* StockService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockService.swift; sourceTree = "<group>"; };
+		5E4B92A62123898B001C049A /* Myriad Pro Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Myriad Pro Regular.ttf"; sourceTree = "<group>"; };
+		5E857E952123A69D004E8FF6 /* Terms and Conditions.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Terms and Conditions.pdf"; sourceTree = "<group>"; };
 		5E94D2D42122563B0037D991 /* NewmanFieldType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewmanFieldType.swift; sourceTree = "<group>"; };
 		5E94D2D621226BE00037D991 /* StockServiceField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockServiceField.swift; sourceTree = "<group>"; };
 		5E9540D42118B9D8002978E8 /* QuotationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotationViewController.swift; sourceTree = "<group>"; };
@@ -132,7 +138,10 @@
 				5ECAF6AB211F9DA700771070 /* ExtraServicesTable.swift */,
 				5ECAF6A9211F85A700771070 /* ServiceQuoteImageTable.swift */,
 				5ECAF6A7211F84B300771070 /* Service.swift */,
+				5E4B928521233BAB001C049A /* StockService.swift */,
 				5ECAF6A5211F848B00771070 /* Material.swift */,
+				5E857E952123A69D004E8FF6 /* Terms and Conditions.pdf */,
+				5E4B92A62123898B001C049A /* Myriad Pro Regular.ttf */,
 				5EB67B38212245FF00E35B7B /* StockMaterial.swift */,
 				5ECAF6A3211F833500771070 /* ExtraService.swift */,
 				5ECAF6A1211F803300771070 /* MerchantQuotationImagePDFPage.swift */,
@@ -203,9 +212,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E857E962123A69D004E8FF6 /* Terms and Conditions.pdf in Resources */,
 				5ED17DFE20FBDEBB00146B20 /* LaunchScreen.storyboard in Resources */,
 				5ED17DFB20FBDEBB00146B20 /* Assets.xcassets in Resources */,
 				5ED17DF920FBDEBA00146B20 /* Main.storyboard in Resources */,
+				5E4B92A72123898B001C049A /* Myriad Pro Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -220,6 +231,7 @@
 				5ED17E1020FBE57700146B20 /* NewmanField.swift in Sources */,
 				5EA76204211DD78B00EEBE2F /* MerchantQuotationPDFPage.swift in Sources */,
 				5EB67B39212245FF00E35B7B /* StockMaterial.swift in Sources */,
+				5E4B928621233BAB001C049A /* StockService.swift in Sources */,
 				5ED17DF620FBDEBA00146B20 /* NewmanFieldViewController.swift in Sources */,
 				5E94D2D52122563B0037D991 /* NewmanFieldType.swift in Sources */,
 				5ED17E1620FBE57700146B20 /* TextFieldPairView.swift in Sources */,

@@ -57,7 +57,7 @@ class GenericTable {
             for header in headers {
                 let headerRect = CGRect(x: currentLeft, y: area!.minY, width: area!.width / 100 * header.percentageWidth, height: headerHeight)
 
-                let headerTextFont = UIFont(name: "Academy Engraved LET", size: 12)
+                let headerTextFont = UIFont(name: "MyriadPro-Regular", size: 12)
             
                 let headerTextAttributes = [
                     NSAttributedStringKey.font: headerTextFont,
@@ -104,7 +104,7 @@ class ServiceQuoteTable: GenericTable {
     }
 
     func getHeightOfString(string: NSString, size: CGSize) -> CGFloat {
-        let headerTextFont = UIFont(name: "Academy Engraved LET", size: 12)
+        let headerTextFont = UIFont(name: "MyriadPro-Regular", size: 12)
         
         let headerTextAttributes = [
             NSAttributedStringKey.font: headerTextFont,
@@ -132,7 +132,7 @@ class ServiceQuoteTable: GenericTable {
             for (index, contentArea) in tableAreaRects.enumerated() {
 
 
-                let headerTextFont = UIFont(name: "Academy Engraved LET", size: 12)
+                let headerTextFont = UIFont(name: "MyriadPro-Regular", size: 12)
 
                 let headerTextAttributes = [
                     NSAttributedStringKey.font: headerTextFont,
@@ -199,7 +199,7 @@ class ServiceQuoteTable: GenericTable {
 
                 let height = testText.boundingRect(with: CGSize(width: contentArea.width, height: contentArea.height), options: .usesLineFragmentOrigin, attributes: headerTextAttributes, context: nil).size.height
 
-                let newTextRect = CGRect(x: contentArea.minX, y: contentArea.minY + nextY, width: contentArea.width, height: height)
+                let newTextRect = CGRect(x: contentArea.minX + 5, y: contentArea.minY + nextY + 5, width: contentArea.width, height: height)
 
                 if height > tallestTextInRow {
                     tallestTextInRow = height
@@ -239,11 +239,13 @@ class MerchantQuotationPDFPage: NewmanPDFPage {
     }
     
     func getServices() -> [Service] {
-        return self.data.services
+        //return self.data.services
+        return (self.quote?.services)!
     }
     
     func getExtraServices() -> [ExtraService] {
-        return self.data.extraServices
+        //return self.data.extraServices
+        return (self.quote?.extraServices)!
     }
     
     func renderServiceTable() {
@@ -265,10 +267,10 @@ class MerchantQuotationPDFPage: NewmanPDFPage {
         let priceHeader = GenericTableHeader(text: "", percentageWidth: 16.666)
         
         // Create a table instance
-        let serviceTable = ServiceQuoteTable(area: serviceTableRect!, headers: [serviceHeader, materialHeader, amountHeader, elevationHeader, detailsHeader, priceHeader], services: self.data.services)
+        let serviceTable = ServiceQuoteTable(area: serviceTableRect!, headers: [serviceHeader, materialHeader, amountHeader, elevationHeader, detailsHeader, priceHeader], services: (self.quote?.services)!)
         serviceTable.render()
-        self.data.services = serviceTable.getServices()
-    
+        //self.data.services = serviceTable.getServices()
+        self.quote?.services = serviceTable.getServices()
     }
     
     func renderExtrasTable() {
@@ -286,9 +288,10 @@ class MerchantQuotationPDFPage: NewmanPDFPage {
         
         //let extraService1 = ExtraService(name: "Extra Service 1", price: 100.00)
         
-        let extraServicesTable = ExtraServicesTable(area: extrasTableRect!, headers: [extraServicesHeader, expectedCostHeader], extraServices: data.extraServices)
+        let extraServicesTable = ExtraServicesTable(area: extrasTableRect!, headers: [extraServicesHeader, expectedCostHeader], extraServices: (self.quote?.extraServices)!)
         extraServicesTable.render()
-        self.data.extraServices = extraServicesTable.getExtraServices()
+        //self.data.extraServices = extraServicesTable.getExtraServices()
+        self.quote?.extraServices = extraServicesTable.getExtraServices()
     }
     
     func getNextPage() {

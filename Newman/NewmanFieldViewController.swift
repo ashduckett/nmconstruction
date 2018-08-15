@@ -21,8 +21,14 @@ class NewmanFormViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("View did load")
         setupForm()
+        
+        for family in UIFont.familyNames.sorted() {
+            let names = UIFont.fontNames(forFamilyName: family)
+            print("Family: \(family) Font names: \(names)")
+        }
+        
+        // MyriadPro-Regular
     }
     
     func removeAllItemsFromStack() {
@@ -34,22 +40,119 @@ class NewmanFormViewController: UIViewController {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        print("end edit")
         self.view.endEditing(true)
+    }
+    
+    func getExtraServicesFromUI() -> [ExtraService] {
+        var extraServices = [ExtraService]()
+        let fieldViews = formContainer.arrangedSubviews
+        
+        for fieldView in fieldViews {
+            let newmanField = fieldView as! NewmanField
+            
+            if newmanField.type! == .extraService {
+                extraServices.append(ExtraService(name: newmanField.textFields![0].text!, price: Double(newmanField.textFields![1].text!)!))
+            }
+        }
+        
+        return extraServices
+    }
+    
+    func getServicesFromUI() -> [Service] {
+        let fieldViews = formContainer.arrangedSubviews
+        
+        var services = [Service]()
+        
+        
+        
+        
+        for fieldView in fieldViews {
+            let newmanField = fieldView as! NewmanField
+            
+            if newmanField.type! == .service {
+                print("A service has been found")
+                print("It has an index of \(formContainer.arrangedSubviews.index(of: fieldView))")
+            
+                // Grab index of service
+                let indexOfService = formContainer.arrangedSubviews.index(of: fieldView)
+                
+                var lastServiceFieldIndex: Int?
+                for index in indexOfService! + 1...fieldViews.count - 1 {
+                    let newmanField = fieldViews[index] as! NewmanField
+                    
+                    if newmanField.type == .details {
+                        lastServiceFieldIndex = index
+                        break
+                    }
+                }
+                
+                print("We should be iterating from \(indexOfService!) to \(lastServiceFieldIndex!)")
+                // Service()
+                
+                var serviceName: String = ""
+                var materials = [Material]()
+                var elevation: Int?
+                var photos = [String]()
+                var drawings = [String]()
+                var details = String()
+                
+                for index in indexOfService!...lastServiceFieldIndex! {
+                    let newmanField = fieldViews[index] as! NewmanField
+                    
+                    switch newmanField.type! {
+                    case .service:
+                            print("Adding service name")
+                            serviceName = newmanField.textFields![0].text!
+                    case .material:
+                        materials.append(Material(name: newmanField.textFields![0].text!, amount: Int(newmanField.textFields![1].text!)!))
+                    case .elevation:
+                        elevation = Int(newmanField.textFields![0].text!)
+                    case .photo:
+                        photos.append("Dummy Image")
+                    case .drawing:
+                        drawings.append("Dummy Image")
+                    case .details:
+                        details = newmanField.textFields![0].text!
+                    default:
+                        print("No Newman type of this type")
+                    }
+                }
+                
+                let service = Service(name: serviceName, materials: materials, elevation: elevation!, details: details, cost: 100.00, surveyImages: photos, surveyDrawings: drawings)
+                services.append(service)
+            
+            }
+            
+        }
+        
+        print(services)
+        
+        return services
+        
+        /*
+            * logo central                      done
+            * services through                  done
+            * larger form
+            * more spacing between fields
+            * extra space between services
+            * change font to myriad
+         
+         
+ */
     }
     
     func addField(plusButtonTappedFor: NewmanField) {
         let indexToAddControlTo = formContainer.arrangedSubviews.index(of: plusButtonTappedFor)! + 1
         //let blankPair = TextFieldPairView(placeholders: ["", ""], delegate: self, type: .unset)
         //blankPair.delegate = self
-        
+        print("BUTTON PRESSED")
         
         
         
         //formContainer.insertArrangedSubview(blankPair, at: indexToAddControlTo)
         
         
-        print("TYPE FOUND: \(plusButtonTappedFor.type!)")
+       // print("TYPE FOUND: \(plusButtonTappedFor.type!)")
         
         
         //blankPair.setupViewHierarchy()
@@ -74,6 +177,7 @@ class NewmanFormViewController: UIViewController {
             formContainer.insertArrangedSubview(drawingField, at: indexToAddControlTo)
             drawingField.setupViewHierarchy()
         case .details, .extraService:
+            
         
             // Find out the kind of service type the user wants: Stock or Extra
             let alert = UIAlertController(title: "Service Type", message: "What kind of service are you adding?", preferredStyle: .alert)
@@ -108,9 +212,15 @@ class NewmanFormViewController: UIViewController {
                 drawingField.setupViewHierarchy()
                 
                 let detailsField = FullLengthTextField(placeholders: ["DETAIL/s"], delegate: self, textFieldCount: 1, type: .details)
+                
                 detailsField.delegate = self
+                
                 self.formContainer.insertArrangedSubview(detailsField, at: indexToAddControlTo + 5)
-                detailsField.setupViewHierarchy()
+                
+                 detailsField.setupViewHierarchy()
+                
+                
+                self.formContainer.setCustomSpacing(50, after: plusButtonTappedFor)
             }))
             
             alert.addAction(UIAlertAction(title: "Extra", style: .default, handler: { action in
@@ -133,18 +243,13 @@ class NewmanFormViewController: UIViewController {
         }
         
         
-        for formField in formContainer.arrangedSubviews {
-            let field = formField as! NewmanField
-            
-            print(field.type)
-        }
     }
     
     func setupForm() {
         
         quotationNumberField = SingleCenteredFieldView(placeholders: [""], label: "QUOTE REQUISITION", textFieldCount: 0, type: .quoteRequisitionNumber)
         quotationApproxTotal = SingleLeftSideField(placeholders: [""], label: "APPROX TOTAL", textFieldCount: 0, type: .approxTotal)
-        print("setting up form")
+        
         formFields = [
             quotationNumberField,
             TextFieldPairView(placeholders: ["CLIENT", "ADDRESS"], delegate: nil, type: .nameAndAddress),
@@ -176,13 +281,12 @@ class NewmanFormViewController: UIViewController {
             destinationVC.testText = "Hamster"
             
             // How are you going to get the text out of the client field?
-            var clientName = formFields[1].textFields![0].text!
-            var clientAddress = formFields[1].textFields![1].text!
-            var quoteNo = quotationNumberField.getText()
+            let clientName = formFields[1].textFields![0].text!
+            let clientAddress = formFields[1].textFields![1].text!
+            let quoteNo = quotationNumberField.getText()
             
             
-            
-            destinationVC.quote = Quote(quotationNumber: quoteNo, clientName: clientName, clientAddress: clientAddress)
+            destinationVC.quote = Quote(quotationNumber: quoteNo, clientName: clientName, clientAddress: clientAddress, services: getServicesFromUI(), extraServices: getExtraServicesFromUI())
         }
     }
 }

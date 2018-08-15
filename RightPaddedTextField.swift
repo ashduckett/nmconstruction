@@ -11,7 +11,7 @@ import UIKit
 
 class RightPaddedTextField: UITextField {
     override func rightViewRect(forBounds bounds: CGRect) -> CGRect {
-        let rightBounds = CGRect(x: bounds.size.width - 35, y: 3, width: 27, height: 20)
+        let rightBounds = CGRect(x: bounds.size.width - 35, y: 15, width: 27, height: 20)
         return rightBounds
     }
 }

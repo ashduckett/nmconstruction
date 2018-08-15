@@ -18,6 +18,10 @@ class QuotationViewController: UIViewController {
     var testText: String?
     let pdfView = PDFView()
     
+    @IBAction func viewTermsPressed(_ sender: Any) {
+        print("View terms")
+        performSegue(withIdentifier: "showTerms", sender: self)
+    }
     
     var quote: Quote?
     

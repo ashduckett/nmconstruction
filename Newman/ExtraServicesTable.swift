@@ -31,8 +31,6 @@ class ExtraServicesTable: GenericTable {
     }
     
     func getExtraServices() -> [ExtraService] {
-        
-        print("Returning \(self.extraServices)")
         return self.extraServices
     }
     
@@ -118,7 +116,7 @@ class ExtraServicesTable: GenericTable {
             nextY += tallestTextInRow
         }
         self.extraServices = extraServicesNotRendered
-        print("Extra services not rendered = \(extraServicesNotRendered)")
+        // print("Extra services not rendered = \(extraServicesNotRendered)")
     }
     
     
